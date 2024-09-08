@@ -13,6 +13,7 @@
   }
 }
 
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -26,6 +27,72 @@
 
 .App-link {
   color: #61dafb;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.Center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:root {
+  --primary-color: #00aeff;  /* Light Blue */
+  --secondary-color: #FFFFFF; /* White */
+  --accent-color-1: #81C784;  /* Green */
+  --accent-color-2: #0D47A1;  /* Dark Navy */
+  --highlight-color: #FFEB3B; /* Yellow */
+}
+
+/* Example usage */
+body {
+  background-color: var(--secondary-color);
+  color: var(--accent-color-2);
+}
+
+header {
+  background-color: var(--primary-color);
+}
+.LoginBtnsContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+
+.btn-primary-temp{
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin: 5px;
+  width: fit-content;
+  font-size: 18px;
+  font-weight: 700;
+}
+.btn-secondery-temp{
+  background-color: var(--accent-color-2) !important;
+  color: white !important;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 5px;
+
+}
+
+.button-green {
+  background-color: var(--accent-color-1);
+  color: var(--secondary-color);
 }
 
 @keyframes App-logo-spin {

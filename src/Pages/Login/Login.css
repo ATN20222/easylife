@@ -1,0 +1,79 @@
+.Login{
+    width: 100%;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.LoginLeftCol{
+    min-height: 710px;
+    background-color: var(--primary-color);
+    /* background-image: url('../../Assets/Images/LoginImage.jpg'); */
+    background-size: cover;
+    position: relative;
+    flex-direction: column;
+    background-repeat: no-repeat;
+}
+.LoginLeftCol svg{
+    width: 200px;
+    height: 200px;
+    z-index: 12;
+    
+}
+.LoginLeftCol h3{
+    color: var(--primary-color);
+    z-index: 12;
+    font-size: 50px;
+    font-weight: 900;
+}
+.LeftLoginColText{
+    color: var(--accent-color-2);
+    z-index: 12;
+    font-weight: 500;
+    width: 50%;
+}
+
+.LoginOverlay{
+    background-image: url('../../Assets/Images/LoginBackOverlay.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary-color);
+    /* opacity: 0.3; */
+    z-index: 10;
+}
+.LoginRightLogin{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: start;
+}
+.FormCol{
+    text-align: start;
+}
+.LogoRightLogin{
+    margin-top:50px ;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent-color-2);
+}
+.LogoRightLogin svg{
+    margin-right: 5px;
+}
+.LoginWelcome{
+    text-align: start;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 50px;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+.AfterLoginFieldsActions{
+    display: flex ;
+    justify-content: space-between;
+}
+.RegisterNow{
+    text-decoration: none;
+}
