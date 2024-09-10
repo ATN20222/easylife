@@ -1,30 +1,45 @@
 import React, { useState } from "react";
-import './Login.css';
+import './Register.css';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandshake } from "@fortawesome/free-solid-svg-icons";
 
-const Login = () => {
+const Register = () => {
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+    const [usernameError, setUsernameError] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
+    const [confirmPasswordError, setConfirmPasswordError] = useState("");
     const [loading, setLoading] = useState(false);
 
     const validateEmail = (email) => {
-        // Simple regex for email validation
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(email);
     };
-
+    const validatePassword = (password) => {
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return regex.test(password);
+    };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         let isValid = true;
 
         // Reset errors
+        setUsernameError("");
         setEmailError("");
         setPasswordError("");
+        setConfirmPasswordError("");
+
+        // Validate username
+        if (!username) {
+            setUsernameError("Username is required");
+            isValid = false;
+        }
 
         // Validate email
         if (!email) {
@@ -39,24 +54,39 @@ const Login = () => {
         if (!password) {
             setPasswordError("Password is required");
             isValid = false;
+        } else if (!validatePassword(password)) {
+            setPasswordError(
+                "Password must contain at least 8 characters Aa-Zz , numbers and !@#$%^&*"
+            );
+            isValid = false;
+        }
+
+
+        // Validate confirm password
+        if (!confirmPassword) {
+            setConfirmPasswordError("Confirm password is required");
+            isValid = false;
+        } else if (password !== confirmPassword) {
+            setConfirmPasswordError("Passwords do not match");
+            isValid = false;
         }
 
         if (!isValid) return; // Stop form submission if validation fails
 
         setLoading(true);
         try {
-            // Simulate API call or handle the login logic
-            console.log("Logging in with:", { email, password });
+            // Simulate API call or handle the register logic
+            console.log("Registering with:", { username, email, password });
             // You can add an API call here
             setTimeout(() => {
                 setLoading(false);
                 // On success, you can redirect the user or show a success message
-                alert("Login successful!");
+                alert("Registration successful!");
             }, 1000);
         } catch (error) {
             setLoading(false);
-            // Handle any errors (e.g., incorrect credentials)
-            alert("Login failed. Please try again.");
+            // Handle any errors
+            alert("Registration failed. Please try again.");
         }
     };
 
@@ -75,14 +105,24 @@ const Login = () => {
                     <div className="LogoRightLogin">
                         <FontAwesomeIcon icon={faHandshake} /> Easy Life
                     </div>
-                    <div className="LoginWelcome">
-                        Hello, <br />
-                        Welcome Back!
-                    </div>
+                    <div className="LoginWelcome">Create a new account</div>
                     <div className="container">
                         <form onSubmit={handleSubmit} className="row">
                             <div className="mb-3 FormCol">
-                                <label htmlFor="email" className="form-label">Email address</label>
+                                <label htmlFor="username" className="form-label">Username*</label>
+                                <input
+                                    type="text"
+                                    className={`form-control ${usernameError ? 'is-invalid' : ''}`}
+                                    id="username"
+                                    placeholder="Username"
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
+                                />
+                                {usernameError && <span className="text-danger p-2">{usernameError}</span>}
+                            </div>
+
+                            <div className="mb-3 FormCol">
+                                <label htmlFor="email" className="form-label">Email address*</label>
                                 <input
                                     type="text"
                                     className={`form-control ${emailError ? 'is-invalid' : ''}`}
@@ -95,7 +135,7 @@ const Login = () => {
                             </div>
 
                             <div className="mb-3 FormCol">
-                                <label htmlFor="password" className="form-label">Password</label>
+                                <label htmlFor="password" className="form-label">Password*</label>
                                 <input
                                     type="password"
                                     className={`form-control ${passwordError ? 'is-invalid' : ''}`}
@@ -107,27 +147,23 @@ const Login = () => {
                                 {passwordError && <span className="text-danger p-2">{passwordError}</span>}
                             </div>
 
-                            <div className="mb-3 FormCol AfterLoginFieldsActions">
-                                <div className="RememberMe">
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                        <label className="form-check-label" htmlFor="flexCheckDefault">
-                                            Remember me
-                                        </label>
-                                    </div>
-                                </div>
-                                <div className="ForgetPassword">
-                                    <Link className="nav-link" to='/forgetpassword'>Forget password?</Link>
-                                </div>
+                            <div className="mb-3 FormCol">
+                                <label htmlFor="confirmPassword" className="form-label">Confirm Password*</label>
+                                <input
+                                    type="password"
+                                    className={`form-control ${confirmPasswordError ? 'is-invalid' : ''}`}
+                                    id="confirmPassword"
+                                    placeholder="Confirm your password"
+                                    value={confirmPassword}
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                />
+                                {confirmPasswordError && <span className="text-danger p-2">{confirmPasswordError}</span>}
                             </div>
 
                             <div className="FormCol LoginBtnsContainer">
                                 <button type="submit" className="btn-primary-temp" disabled={loading}>
-                                    {loading ? "Logging in..." : "Login"}
+                                    {loading ? "Registering..." : "Register"}
                                 </button>
-                                <span>Don't have an account? 
-                                    <Link to="/Register" className="RegisterNow">Register now</Link>
-                                </span>
                             </div>
                         </form>
                     </div>
@@ -137,4 +173,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
