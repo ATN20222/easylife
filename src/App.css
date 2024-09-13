@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  min-height: 150vh;
 }
 
 .App-logo {
@@ -12,6 +13,14 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+:root {
+  --primary-color: #00aeff;  /* Light Blue */
+  --secondary-color: #FFFFFF; /* White */
+  --accent-color-1: #81C784;  /* Green */
+  --accent-color-2: #0D47A1;  /* Dark Navy */
+  --highlight-color: #FFEB3B; /* Yellow */
+}
+
 
 
 .App-header {
@@ -38,13 +47,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-:root {
-  --primary-color: #00aeff;  /* Light Blue */
-  --secondary-color: #FFFFFF; /* White */
-  --accent-color-1: #81C784;  /* Green */
-  --accent-color-2: #0D47A1;  /* Dark Navy */
-  --highlight-color: #FFEB3B; /* Yellow */
 }
 
 /* Example usage */
