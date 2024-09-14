@@ -1,3 +1,13 @@
+@media (max-width:990px) {
+    .ServiceHomeCard .ServiceHomeCardImageCol{
+        order:-1 ;
+        padding: 10px;
+    }
+    .ServiceHomeCardImageCol img{
+        max-width: 250px;
+    }
+}
+
 @media (max-width:575px) {
     .LoginLeftCol{
         display: none;

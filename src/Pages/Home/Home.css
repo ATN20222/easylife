@@ -24,11 +24,15 @@
     /* padding-left: 120px !important; */
     padding-right: 50px !important;
     text-align: start;
+
 }
 .HomeFirstSectionTextCol h1{
     width: 100%;
     font-weight: 700 !important;
     color: var(--accent-color-2);
+    font-family: 'MainFontNorm';
+    line-height: 60px;
+
 }
 .HomeFirstSectionTextCol span{
     margin-top: 10px;
@@ -39,4 +43,49 @@
     width: 100%;
     display: flex;
     justify-content: start;
+}
+.HomeServicesSection{
+    margin-top: 100px;
+}
+.HomeServicesHeader{
+    margin-bottom: 50px;
+    font-family: 'MainFontBold';
+    color: var(--accent-color-2);
+}
+.ServiceHomeCardContainer{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.ServiceHomeCard{
+    min-height: 310px !important;
+    border-radius: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding-left: 20px;
+    margin: 10px;
+}
+.ServiceHomeCardImageCol{
+}
+.ServiceHomeCardTextCol{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: start;
+    padding: 10px;
+    padding-right: 20px !important;
+}
+.GetNowBtnContainer{
+    margin-top: 10px;
+}
+.ServiceHomeCardTextCol h3{
+    font-weight: 800 !important;
+    font-family: 'MainFontBold';
+    letter-spacing: 2px;
+    font-size: 30px;
+    color: var(--primary-color);
+}
+.ServiceHomeCardTextCol span{
+    color: var(--primary-color);
 }

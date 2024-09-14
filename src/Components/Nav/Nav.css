@@ -39,6 +39,8 @@
     display: flex;
     justify-content: end;
     align-items: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 .LinksNav ul{
     padding: 0;
@@ -194,7 +196,7 @@
     margin-right: 10px;
 }
 .LogoNavContainer{
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 700;
     color: var(--accent-color-2);
 }

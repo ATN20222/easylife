@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import './Nav.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faHandshake, faLocationDot, faPhone, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faGlobe, faHandshake, faLocationDot, faPhone, faTimes } from '@fortawesome/free-solid-svg-icons';
 // import Logo from '../../Assets/Images/Logo.png';
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 const Nav = () => {
     const [isSticky, setIsSticky] = useState(false);
@@ -34,38 +36,50 @@ const Nav = () => {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+    const { i18n } = useTranslation();
+    const [showDropdown, setShowDropdown] = useState(false);
+  
+    // Toggle the dropdown menu
+    const toggleDropdown = () => {
+        setShowDropdown(!showDropdown);
+    };
+  
+    // // Handle language change
+    // const changeLanguage = (lang) => {
+    //     i18n.changeLanguage(lang);
+    //     setShowDropdown(false); // Close the dropdown after language selection
+    // };
+    const changeLanguage = (lng) => {
+        i18n.changeLanguage(lng);
+        localStorage.setItem('language', lng); 
+        setShowDropdown(false); 
 
+        window.location.reload();
+
+    };
+    const dropdownStyle = {
+  position: 'absolute',
+  backgroundColor: '#fff',
+  border: '1px solid #ccc',
+  borderRadius: '4px',
+  listStyle: 'none',
+  padding: '5px 0',
+  zIndex: 1000,
+};
+
+const dropdownItemStyle = {
+  padding: '10px 20px',
+  cursor: 'pointer',
+};
     return (
-        <section>
-            {/* <div className="TopNav">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-6 TopNavCol">
-                           <div className="NavLocation">
-                                <span>Address</span>
-                                <div className="AddressNav">
-                                    <FontAwesomeIcon icon={faLocationDot}/>  8 Mohammed Tawfik Diab, Nasr City, Cairo, Egypt.
-                                </div>
-                           </div>
-                           <div className="NavCallUs">
-                                <span>Call us</span>
-                                <div className="AddressNav">
-                                    <FontAwesomeIcon icon={faPhone}/> <span className="PhoneNumber">(+02)22746241</span> 
-                                </div>
-                           </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
+<section>
             <div className={`MainNav ${isSticky ? 'sticky' : ''}`}>
                 <div className="container">
                     <div className="row NavRow">
-                        <div className="col-lg-2 col-md-4 col-6">
+                        <div className="col-lg-3 col-md-4 col-6">
                             <div className="LogoContainer">
-                                {/* <img src={Logo} width="131px" alt="" /> */}
-                                {/* EasyLife */}
                                 <div className="LogoNavContainer">
-                                    <FontAwesomeIcon icon={faHandshake} /> Easy Life
+                                    <FontAwesomeIcon icon={faHandshake} /> {t('logo')}
                                 </div>
                             </div>
                         </div>
@@ -75,67 +89,74 @@ const Nav = () => {
                                     <NavLink
                                         className={({ isActive }) => isActive ? "Nav-Link ActiveLink" : "Nav-Link"}
                                         to="/home"
-                                        onClick={scrollToTop} // Add scrollToTop here
+                                        onClick={scrollToTop}
                                     >
-                                        Home
+                                        {t('home')}
                                     </NavLink>
                                 </li>
                                 <li className="list-inline-item">
                                     <NavLink
                                         className={({ isActive }) => isActive ? "Nav-Link ActiveLink" : "Nav-Link"}
                                         to="/about"
-                                        onClick={scrollToTop} // Add scrollToTop here
+                                        onClick={scrollToTop}
                                     >
-                                        About us
+                                        {t('about_us')}
                                     </NavLink>
                                 </li>
                                 <li className="list-inline-item">
                                     <NavLink
                                         className={({ isActive }) => isActive ? "Nav-Link ActiveLink" : "Nav-Link"}
                                         to="/services"
-                                        onClick={scrollToTop} // Add scrollToTop here
+                                        onClick={scrollToTop}
                                     >
-                                        Services
+                                        {t('services')}
                                     </NavLink>
                                 </li>
-                                
                                 <li className="list-inline-item">
                                     <NavLink
                                         className={({ isActive }) => isActive ? "Nav-Link ActiveLink" : "Nav-Link"}
                                         to="/news"
-                                        onClick={scrollToTop} // Add scrollToTop here
+                                        onClick={scrollToTop}
                                     >
-                                        News
+                                        {t('news')}
                                     </NavLink>
                                 </li>
                                 <li className="list-inline-item">
                                     <NavLink
                                         className={({ isActive }) => isActive ? "Nav-Link ActiveLink" : "Nav-Link"}
                                         to="/clients"
-                                        onClick={scrollToTop} // Add scrollToTop here
+                                        onClick={scrollToTop}
                                     >
-                                        Contact us
+                                        {t('contact_us')}
                                     </NavLink>
                                 </li>
-
                                 <li className="list-inline-item">
                                     <NavLink className="btn btn-danger NavLoginBtn" to="/Login" onClick={scrollToTop}>
-                                        Login
+                                        {t('login')}
                                     </NavLink>
                                 </li>
                                 <li className="list-inline-item">
-                                    <NavLink className="btn btn-danger NavRegisterBtn" to="/Login" onClick={scrollToTop}>
-                                        Register
+                                    <NavLink className="btn btn-danger NavRegisterBtn" to="/Register" onClick={scrollToTop}>
+                                        {t('register')}
                                     </NavLink>
+                                </li>
+                                <li className="list-inline-item">
+                                    <div className="Nav-Link LanguageBtn" onClick={toggleDropdown}>
+                                        <FontAwesomeIcon icon={faGlobe} />
+                                        {showDropdown && (
+                                        <ul style={dropdownStyle}>
+                                            <li style={dropdownItemStyle} onClick={() => changeLanguage('en')}>
+                                                {t('english')}
+                                            </li>
+                                            <li style={dropdownItemStyle} onClick={() => changeLanguage('ar')}>
+                                                {t('arabic')}
+                                            </li>
+                                        </ul>
+                                        )}
+                                    </div>
                                 </li>
                             </ul>
                         </div>
-                        <div className="MenuButtonCol col-md-1 col-1 d-md-none Center">
-                            <button className="MenuButton" onClick={toggleMenu}>
-                                <FontAwesomeIcon icon={faBars} />
-                            </button>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -146,28 +167,28 @@ const Nav = () => {
                 </button>
                 <ul className="OverlayLinks">
                     <li>
-                        <NavLink to="/home" onClick={() => { scrollToTop(); toggleMenu(); }}>Home</NavLink>
+                        <NavLink to="/home" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('home')}</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/about" onClick={() => { scrollToTop(); toggleMenu(); }}>About Us</NavLink>
+                        <NavLink to="/about" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('about_us')}</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/services" onClick={() => { scrollToTop(); toggleMenu(); }}>Services</NavLink>
+                        <NavLink to="/services" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('services')}</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/solutions" onClick={() => { scrollToTop(); toggleMenu(); }}>Solutions</NavLink>
+                        <NavLink to="/solutions" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('solutions')}</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/news" onClick={() => { scrollToTop(); toggleMenu(); }}>News</NavLink>
+                        <NavLink to="/news" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('news')}</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/clients" onClick={() => { scrollToTop(); toggleMenu(); }}>Clients</NavLink>
+                        <NavLink to="/clients" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('clients')}</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/careers" onClick={() => { scrollToTop(); toggleMenu(); }}>Careers</NavLink>
+                        <NavLink to="/careers" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('careers')}</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/contactus" onClick={() => { scrollToTop(); toggleMenu(); }}>Contact Us</NavLink>
+                        <NavLink to="/contactus" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('contact_us')}</NavLink>
                     </li>
                 </ul>
             </div>

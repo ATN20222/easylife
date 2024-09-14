@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'CC SamaritanTallLower';
+    src: url('CCSamaritanTallLower-Regular.eot');
+    src: local('CC SamaritanTallLower Regular'), local('CCSamaritanTallLower-Regular'),
+        url('CCSamaritanTallLower-Regular.eot?#iefix') format('embedded-opentype'),
+        url('CCSamaritanTallLower-Regular.woff2') format('woff2'),
+        url('CCSamaritanTallLower-Regular.woff') format('woff'),
+        url('CCSamaritanTallLower-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CC SamaritanTallLower';
+    src: url('CCSamaritanTallLower-BoldItalic.eot');
+    src: local('CC SamaritanTallLower Bold Italic'), local('CCSamaritanTallLower-BoldItalic'),
+        url('CCSamaritanTallLower-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('CCSamaritanTallLower-BoldItalic.woff2') format('woff2'),
+        url('CCSamaritanTallLower-BoldItalic.woff') format('woff'),
+        url('CCSamaritanTallLower-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'CC SamaritanTallLower';
+    src: url('CCSamaritanTallLower-Italic.eot');
+    src: local('CC SamaritanTallLower Italic'), local('CCSamaritanTallLower-Italic'),
+        url('CCSamaritanTallLower-Italic.eot?#iefix') format('embedded-opentype'),
+        url('CCSamaritanTallLower-Italic.woff2') format('woff2'),
+        url('CCSamaritanTallLower-Italic.woff') format('woff'),
+        url('CCSamaritanTallLower-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'CC SamaritanTallLower';
+    src: url('CCSamaritanTallLower-Bold.eot');
+    src: local('CC SamaritanTallLower Bold'), local('CCSamaritanTallLower-Bold'),
+        url('CCSamaritanTallLower-Bold.eot?#iefix') format('embedded-opentype'),
+        url('CCSamaritanTallLower-Bold.woff2') format('woff2'),
+        url('CCSamaritanTallLower-Bold.woff') format('woff'),
+        url('CCSamaritanTallLower-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+

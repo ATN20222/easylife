@@ -1,6 +1,7 @@
 import React from "react";
 import HomeImage from '../../Assets/Images/Asset 2.svg'
 import { NavLink } from "react-router-dom";
+import { t } from "i18next";
 const HomeFirstSection = ()=>{
     return(
         <section className="HomeFirstSection">
@@ -8,14 +9,14 @@ const HomeFirstSection = ()=>{
                 <div className="row">
                     <div className="col-lg-5 HomeFirstSectionTextCol">
                         <h1>
-                            We Help You Have a Better
-                            
-                            Easy life 
+                            {t('we_help_you')}
+                            <br />
+                            {/* {t('easy_life')} */}
                         </h1>
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, accusamus praesentium deleniti voluptate a laborum? Unde error quibusdam officiis et tempora ad, enim maiores dolores porro. Possimus distinctio excepturi porro.</span>
+                        <span>{t('home_description')}</span>
                         <div className="GoldBtnContainer">
                             <NavLink className="btn btn-danger GoldBtn" to="/Login">
-                                Get Started
+                            {t('get_started')}
                             </NavLink>
                         </div>
                     </div>

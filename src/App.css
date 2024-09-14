@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  min-height: 150vh;
+  min-height: 200vh;
 }
 
 .App-logo {
@@ -21,6 +21,48 @@
   --highlight-color: #FFEB3B; /* Yellow */
 }
 
+@font-face {
+  font-family: 'MainFontNorm';
+  src: url('./Assets/Fonts/font/CCSamaritanTallLower-Regular.woff2') format('woff2'),
+       url('./Assets/Fonts/font/CCSamaritanTallLower-Regular.woff') format('woff'),
+       url('./Assets/Fonts/font/CCSamaritanTallLower-Regular.ttf') format('truetype'),
+       url('./Assets/Fonts/font/CCSamaritanTallLower-Regular.eot'); /* IE9 */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'MainFontBold';
+  src: url('./Assets/Fonts/font/CCSamaritanTallLower-Bold.woff2') format('woff2'),
+       url('./Assets/Fonts/font/CCSamaritanTallLower-Bold.woff') format('woff'),
+       url('./Assets/Fonts/font/CCSamaritanTallLower-Bold.ttf') format('truetype'),
+       url('./Assets/Fonts/font/CCSamaritanTallLower-Bold.eot'); /* IE9 */
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Italic */
+@font-face {
+  font-family: 'MainFontI';
+  src: url('./Assets/Fonts/font/CCSamaritanTallLower-Italic.woff2') format('woff2'),
+       url('./Assets/Fonts/font/CCSamaritanTallLower-Italic.woff') format('woff'),
+       url('./Assets/Fonts/font/CCSamaritanTallLower-Italic.ttf') format('truetype'),
+       url('./Assets/Fonts/font/CCSamaritanTallLower-Italic.eot'); /* IE9 */
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Bold Italic */
+@font-face {
+  font-family: 'MainFontBI';
+  src: url('./Assets/Fonts/font/CCSamaritanTallLower-BoldItalic.woff2') format('woff2'),
+       url('./Assets/Fonts/font/CCSamaritanTallLower-BoldItalic.woff') format('woff'),
+       url('./Assets/Fonts/font/CCSamaritanTallLower-BoldItalic.ttf') format('truetype'),
+       url('./Assets/Fonts/font/CCSamaritanTallLower-BoldItalic.eot'); /* IE9 */
+  font-weight: bold;
+  font-style: italic;
+}
 
 
 .App-header {
@@ -96,6 +138,7 @@ header {
   background-color: var(--accent-color-1);
   color: var(--secondary-color);
 }
+
 
 @keyframes App-logo-spin {
   from {

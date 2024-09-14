@@ -7,6 +7,7 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import Nav from './Components/Nav/Nav';
 import Home from './Pages/Home/Home';
+import { useEffect, useState } from 'react';
 
 function App() {
   const location = useLocation();
@@ -14,9 +15,13 @@ function App() {
   // Check if the current path is either '/Login' or '/Register'
   const hideNavRoutes = ['/Login', '/Register'];
   const shouldShowNav = !hideNavRoutes.includes(location.pathname);
-
+  const [direction , setDirection] = useState('ltr');
+  useEffect(()=>{
+    if(localStorage.getItem('language')==='ar')
+      setDirection('rtl')
+  },[])
   return (
-    <div className='App'>
+    <div className='App' dir={direction}>
       {shouldShowNav && <Nav />}
       <Routes>
         <Route path='/Login' element={<Login />} />
