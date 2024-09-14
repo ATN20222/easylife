@@ -9,7 +9,7 @@ const ServiceHomeCard = ({Image , Ttile , Description})=>{
                     
                     <div className="row">
 
-                    <div className="col-lg-6 ServiceHomeCardTextCol">
+                        <div className="col-lg-6 ServiceHomeCardTextCol">
                             <h3>{Ttile}</h3>
                             <span>
                                 {Description}

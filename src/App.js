@@ -8,6 +8,7 @@ import Register from './Pages/Register/Register';
 import Nav from './Components/Nav/Nav';
 import Home from './Pages/Home/Home';
 import { useEffect, useState } from 'react';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   const location = useLocation();
@@ -29,6 +30,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/Home' element={<Home />} />
       </Routes>
+      {shouldShowNav && <Footer />}
+
     </div>
   );
 }

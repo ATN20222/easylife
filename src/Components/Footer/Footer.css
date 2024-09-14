@@ -1,0 +1,98 @@
+.FooterSection{
+    /* margin-bottom: 100px;    */
+}
+.PrivacyRow{
+    padding: 20px;
+    margin-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+.PrivacyRow .PrivacyCol:nth-child(1){
+    text-align: start;
+    font-weight: 500;
+    font-size: 14px;
+}
+footer{
+    background-color: #f5f6f7;
+    border-radius: 30px;
+    padding: 50px;
+}
+.FooterRow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.FooterCol{
+    padding: 20px;
+}
+.FooterCol:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:start ;
+}
+.FooterCol:nth-child(3){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:start ;
+}
+.FooterLogoText{
+    text-align: start;
+    font-size: 14;
+    font-weight: 500;
+}
+.ReadMoreFooter{
+    color: var(--color-light-red);
+    text-decoration: underline;
+    cursor: pointer;
+}
+.FooterEventsTitle{
+    font-size: 32px;
+    font-weight: 700;
+}
+.FooterEventsItem{
+    background-color: white;
+    border-radius: 25px;
+    padding: 10px;
+    height: 70px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.FooterEventsItem span{
+    font-size: 14px;
+    font-weight: 500;
+}
+.FooterContactItem{
+    text-align: start;
+    margin-top: 2px;
+    margin-bottom:2px;
+    padding: 10px;
+    border-bottom: 1px solid #9E9E9E;
+
+}
+.FooterContactItem span{
+    font-weight: 500;
+}
+.FooterContactTitle{
+    font-size: 32px;
+    font-weight: 700;
+}
+.FooterSocial{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.FooterSocial .FooterIcon{
+    padding: 10px;
+    color: black;
+}
+.PrivacyCol:nth-child(1){
+    padding: 10px;
+}
+
