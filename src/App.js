@@ -9,6 +9,8 @@ import Nav from './Components/Nav/Nav';
 import Home from './Pages/Home/Home';
 import { useEffect, useState } from 'react';
 import Footer from './Components/Footer/Footer';
+import About from './Pages/About/About';
+import Services from './Pages/Services/Services';
 
 function App() {
   const location = useLocation();
@@ -29,6 +31,8 @@ function App() {
         <Route path='/Register' element={<Register />} />
         <Route path='/' element={<Home />} />
         <Route path='/Home' element={<Home />} />
+        <Route path='/About' element={<About />} />
+        <Route path='/Services' element={<Services />} />
       </Routes>
       {shouldShowNav && <Footer />}
 

@@ -165,7 +165,7 @@ const dropdownItemStyle = {
                 <button className="CloseButton" onClick={toggleMenu}>
                     <FontAwesomeIcon icon={faTimes} />
                 </button>
-                <ul className="OverlayLinks">
+                <ul className="OverlayLinks">   
                     <li>
                         <NavLink to="/home" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('home')}</NavLink>
                     </li>

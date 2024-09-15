@@ -1,5 +1,9 @@
 .FooterSection{
     /* margin-bottom: 100px;    */
+    width: 100%;
+    overflow: hidden;
+    direction: ltr !important;
+
 }
 .PrivacyRow{
     padding: 20px;

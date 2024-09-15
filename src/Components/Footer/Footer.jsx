@@ -8,7 +8,7 @@ import { t } from "i18next";
 const Footer = ()=>{
     return( 
         <section className="FooterSection">
-                <div className="container">
+                <div className="">
                 <footer>
                     <div className="container">
                     <div className="row FooterRow">
