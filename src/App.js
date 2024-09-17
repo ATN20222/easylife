@@ -11,6 +11,8 @@ import { useEffect, useState } from 'react';
 import Footer from './Components/Footer/Footer';
 import About from './Pages/About/About';
 import Services from './Pages/Services/Services';
+import News from './Pages/News/News';
+import NewsDetails from './Pages/News/NewsDetails';
 
 function App() {
   const location = useLocation();
@@ -33,6 +35,8 @@ function App() {
         <Route path='/Home' element={<Home />} />
         <Route path='/About' element={<About />} />
         <Route path='/Services' element={<Services />} />
+        <Route path='/News' element={<News />} />
+        <Route path='/News/:id' element={<NewsDetails />} />
       </Routes>
       {shouldShowNav && <Footer />}
 

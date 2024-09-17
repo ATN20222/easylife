@@ -1,0 +1,38 @@
+.NewsCard .row{
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.NewsCard {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 420px !important;
+    border-radius: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding-left: 20px; */
+    margin: 10px;
+    transition: all 0.2s ease-in-out;
+}
+.NewsDetails{
+    margin-bottom: 100px;
+}
+.NewsDescription{
+    width: 100%;
+}
+
+.NewsCardCardImageContainer{
+    max-width: 200px;
+    max-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.NewsCardCardImageContainer img{
+    width: 100%;
+}
