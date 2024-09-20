@@ -1,0 +1,25 @@
+.SocialContactLinks{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+}
+.SocialContactLinks a{
+    margin: 5px;
+    margin-top: 10px;
+}
+.SocialContactLinks a svg{
+    width: 30px;
+    height: 30px;
+
+}
+.ContactFormSection{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.ContactMessage{
+    min-height: 180px !important;
+}
+.ContactBtnContainer{
+    align-items: end;
+}

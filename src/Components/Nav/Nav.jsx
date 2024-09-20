@@ -124,7 +124,7 @@ const dropdownItemStyle = {
                                 <li className="list-inline-item">
                                     <NavLink
                                         className={({ isActive }) => isActive ? "Nav-Link ActiveLink" : "Nav-Link"}
-                                        to="/clients"
+                                        to="/contact"
                                         onClick={scrollToTop}
                                     >
                                         {t('contact_us')}

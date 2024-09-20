@@ -13,11 +13,10 @@ import About from './Pages/About/About';
 import Services from './Pages/Services/Services';
 import News from './Pages/News/News';
 import NewsDetails from './Pages/News/NewsDetails';
+import Contact from './Pages/Contact/Contact';
 
 function App() {
   const location = useLocation();
-
-  // Check if the current path is either '/Login' or '/Register'
   const hideNavRoutes = ['/Login', '/Register'];
   const shouldShowNav = !hideNavRoutes.includes(location.pathname);
   const [direction , setDirection] = useState('ltr');
@@ -37,6 +36,7 @@ function App() {
         <Route path='/Services' element={<Services />} />
         <Route path='/News' element={<News />} />
         <Route path='/News/:id' element={<NewsDetails />} />
+        <Route path='/Contact' element={<Contact />} />
       </Routes>
       {shouldShowNav && <Footer />}
 
