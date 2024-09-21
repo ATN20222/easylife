@@ -17,8 +17,8 @@ import Contact from './Pages/Contact/Contact';
 
 function App() {
   const location = useLocation();
-  const hideNavRoutes = ['/Login', '/Register'];
-  const shouldShowNav = !hideNavRoutes.includes(location.pathname);
+  const hideNavRoutes = ['/login', '/register'];
+  const shouldShowNav = !hideNavRoutes.includes(location.pathname.toLocaleLowerCase());
   const [direction , setDirection] = useState('ltr');
   useEffect(()=>{
     if(localStorage.getItem('language')==='ar')

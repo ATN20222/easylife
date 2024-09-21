@@ -1,25 +1,31 @@
 import React, { useState } from "react";
 import './Register.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandshake } from "@fortawesome/free-solid-svg-icons";
+import { AuthService } from "../../Services/Api";
+import toast, { Toaster } from "react-hot-toast";
+import { t } from "i18next";
 
 const Register = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-
     const [usernameError, setUsernameError] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [confirmPasswordError, setConfirmPasswordError] = useState("");
     const [loading, setLoading] = useState(false);
 
+    const navigate = useNavigate();
+
     const validateEmail = (email) => {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(email);
     };
+
+
     const validatePassword = (password) => {
         const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         return regex.test(password);
@@ -74,24 +80,34 @@ const Register = () => {
         if (!isValid) return; // Stop form submission if validation fails
 
         setLoading(true);
+        var response = [];
         try {
-            // Simulate API call or handle the register logic
-            console.log("Registering with:", { username, email, password });
-            // You can add an API call here
+            response = await AuthService.Register(username , email , password);
+            toast.success(`${t('account_created')}`)
             setTimeout(() => {
                 setLoading(false);
-                // On success, you can redirect the user or show a success message
-                alert("Registration successful!");
+                navigate('/login')
             }, 1000);
         } catch (error) {
+            // console.log(error);
             setLoading(false);
-            // Handle any errors
-            alert("Registration failed. Please try again.");
+            console.log(`${error}`);
+            // error.response.data
+            // error.response.data.forEach(element => {
+                
+                toast.error(`${error}`)
+            // });
         }
     };
 
     return (
         <div className="Login">
+             <div className="Toaster">
+                <Toaster
+                    position="top-right"
+                    reverseOrder={false}
+                />
+            </div>
             <div className="row">
                 <div className="col-lg-6 col-md-6 col-sm-6 Center LoginLeftCol">
                     <FontAwesomeIcon icon={faHandshake} />

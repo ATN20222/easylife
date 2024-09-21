@@ -72,7 +72,7 @@ const Nav = () => {
     padding: '10px 20px',
     cursor: 'pointer',
     };
-    const isLoggedIn = getToken()!==null||getToken()!==undefined;
+    const isLoggedIn = getToken();
     return (
 <section>
             <div className={`MainNav ${isSticky ? 'sticky' : ''}`}>

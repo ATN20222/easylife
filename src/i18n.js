@@ -70,6 +70,7 @@ i18n
             "message_sent": "Your message has been sent",
             "message_failed": "Failed to send your message",
             send_a_message:'Send a message',
+            account_created:'account created!',
         },
 
         },
@@ -137,7 +138,9 @@ i18n
             "name_required": "الاسم مطلوب",
             "message_sent": "تم ارسال رسالتك بنجاح",
             "message_failed": "فشل ارسال رسالتك",
-            send_a_message:'ارسل رسالة'
+            send_a_message:'ارسل رسالة',
+            account_created:'تم انشاء الحساب',
+
         },
         },
     },
