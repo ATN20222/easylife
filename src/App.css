@@ -1,6 +1,13 @@
 .App {
   text-align: center;
   /* min-height: 200vh; */
+  position: relative;
+}
+.Toaster{
+  z-index: 10000;
+  position: absolute;
+  top: 100px;
+  left: 100px;
 }
 
 .App-logo {

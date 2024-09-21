@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import './Nav.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faGlobe, faHandshake, faLocationDot, faPhone, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faGlobe, faHandshake, faLocationDot, faPhone, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 // import Logo from '../../Assets/Images/Logo.png';
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { t } from "i18next";
+import { getToken } from "../../Services/axiosInstance";
 
 const Nav = () => {
     const [isSticky, setIsSticky] = useState(false);
@@ -58,19 +59,20 @@ const Nav = () => {
 
     };
     const dropdownStyle = {
-  position: 'absolute',
-  backgroundColor: '#fff',
-  border: '1px solid #ccc',
-  borderRadius: '4px',
-  listStyle: 'none',
-  padding: '5px 0',
-  zIndex: 1000,
-};
+    position: 'absolute',
+    backgroundColor: '#fff',
+    border: '1px solid #ccc',
+    borderRadius: '4px',
+    listStyle: 'none',
+    padding: '5px 0',
+    zIndex: 1000,
+    };
 
-const dropdownItemStyle = {
-  padding: '10px 20px',
-  cursor: 'pointer',
-};
+    const dropdownItemStyle = {
+    padding: '10px 20px',
+    cursor: 'pointer',
+    };
+    const isLoggedIn = getToken()!==null||getToken()!==undefined;
     return (
 <section>
             <div className={`MainNav ${isSticky ? 'sticky' : ''}`}>
@@ -130,16 +132,31 @@ const dropdownItemStyle = {
                                         {t('contact_us')}
                                     </NavLink>
                                 </li>
-                                <li className="list-inline-item">
+                                {!isLoggedIn?
+                                    <>
+                                    <li className="list-inline-item">
                                     <NavLink className="btn btn-danger NavLoginBtn" to="/Login" onClick={scrollToTop}>
                                         {t('login')}
                                     </NavLink>
-                                </li>
-                                <li className="list-inline-item">
-                                    <NavLink className="btn btn-danger NavRegisterBtn" to="/Register" onClick={scrollToTop}>
-                                        {t('register')}
-                                    </NavLink>
-                                </li>
+                                    </li>
+                                    <li className="list-inline-item">
+                                        <NavLink className="btn btn-danger NavRegisterBtn" to="/Register" onClick={scrollToTop}>
+                                            {t('register')}
+                                        </NavLink>
+                                    </li>
+                                    </>:
+                                    <li className="list-inline-item">
+                                        <NavLink
+                                            className={({ isActive }) => isActive ? "Nav-Link ActiveLink" : "Nav-Link"}
+                                            to="/myprofile"
+                                            onClick={scrollToTop}
+                                        >
+                                            {/* {t('')} */}
+                                            <FontAwesomeIcon icon={faUser}/>
+                                        </NavLink>
+                                    </li>
+                                }
+                                
                                 <li className="list-inline-item">
                                     <div className="Nav-Link LanguageBtn" onClick={toggleDropdown}>
                                         <FontAwesomeIcon icon={faGlobe} />

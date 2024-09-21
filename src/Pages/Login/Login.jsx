@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import './Login.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandshake } from "@fortawesome/free-solid-svg-icons";
+import toast, { Toaster } from "react-hot-toast";
+import { AuthService } from "../../Services/Api";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -11,12 +13,14 @@ const Login = () => {
     const [passwordError, setPasswordError] = useState("");
     const [loading, setLoading] = useState(false);
 
+    const navigate = useNavigate();
+
     const validateEmail = (email) => {
         // Simple regex for email validation
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(email);
     };
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         
@@ -41,27 +45,31 @@ const Login = () => {
             isValid = false;
         }
 
-        if (!isValid) return; // Stop form submission if validation fails
+        if (!isValid) return; 
 
         setLoading(true);
         try {
-            // Simulate API call or handle the login logic
-            console.log("Logging in with:", { email, password });
-            // You can add an API call here
+            const response  = await AuthService.Login(email , password);
+            console.log(response);
+            toast.success("Login successful!");
             setTimeout(() => {
                 setLoading(false);
-                // On success, you can redirect the user or show a success message
-                alert("Login successful!");
+                navigate('/Home');
             }, 1000);
         } catch (error) {
             setLoading(false);
-            // Handle any errors (e.g., incorrect credentials)
-            alert("Login failed. Please try again.");
+            toast.error(`${error}`);
         }
     };
 
     return (
         <div className="Login">
+            <div className="Toaster">
+                <Toaster
+                    position="top-right"
+                    reverseOrder={false}
+                />
+            </div>
             <div className="row">
                 <div className="col-lg-6 col-md-6 col-sm-6 Center LoginLeftCol">
                     <FontAwesomeIcon icon={faHandshake} />
