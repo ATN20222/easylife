@@ -5,39 +5,64 @@ import ElderlyCareImage from '../../Assets/Images/Elderly Care.svg'
 import ChildCareImage from '../../Assets/Images/Childcare.svg'
 import webImage from '../../Assets/Images/webImage.png'
 import { useParams } from "react-router-dom";
+import { NewsService } from "../../Services/Api";
 const NewsDetails = ()=>{
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
+    const [loading , setLoading] = useState(false);
     const { id } = useParams();
 
-    const news = [
-        {
-            id:1,
-            image: webImage,
-            title: 'Our New Website',
-            text: 'Lunching our new website to order a service and reservations online.',
-        },
-        {
-            id:2,
-            image: ElderlyCareImage,
-            title: t('elderly_care_title'),
-            text: t('elderly_care_text'),
-        },
-        {
-            id:3,
-            image: ChildCareImage,
-            title: t('child_care_title'),
-            text: t('child_care_text'),
-        }
-    ];
+    // const news = [
+    //     {
+    //         id:1,
+    //         image: webImage,
+    //         title: 'Our New Website',
+    //         text: 'Lunching our new website to order a service and reservations online.',
+    //     },
+    //     {
+    //         id:2,
+    //         image: ElderlyCareImage,
+    //         title: t('elderly_care_title'),
+    //         text: t('elderly_care_text'),
+    //     },
+    //     {
+    //         id:3,
+    //         image: ChildCareImage,
+    //         title: t('child_care_title'),
+    //         text: t('child_care_text'),
+    //     }
+    // ];
 
-    useEffect(()=>{
-        var n = news.find(r=>r.id == id);
-        setTitle(n.title);
-        setImage(n.image);
-        setDescription(n.text);
-    },[]);
+    // useEffect(()=>{
+    //     var n = news.find(r=>r.id == id);
+    //     setTitle(n.title);
+    //     setImage(n.image);
+    //     setDescription(n.text);
+    // },[]);
+
+
+    useEffect(() => {
+        getNewsData();
+    }, []);
+
+    const getNewsData = async () => {
+        try {
+            const response = await NewsService.GetById(id);
+            setImage(response.data[0].imageUrl);
+            setDescription(response.data[0].description);
+            setTitle(response.data[0].title); 
+            
+        } catch (error) {
+            console.error("Error fetching news:", error);
+            setLoading(false);  
+        }
+    };
+    if (loading) {
+        return <div>Loading...</div>;  
+    }
+
+
     return(
         <div className="NewsDetails">
             <section className="HomeFirstSection">

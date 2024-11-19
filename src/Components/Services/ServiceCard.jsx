@@ -2,7 +2,7 @@ import { t } from "i18next";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const ServiceCard = ({ Image, Ttile, Description }) => {
+const ServiceCard = ({ Id, Image, Ttile, Description }) => {
     // State to manage whether the full description is shown
     const [isReadMore, setIsReadMore] = useState(false);
     
@@ -34,7 +34,7 @@ const ServiceCard = ({ Image, Ttile, Description }) => {
                                 </span>
                             </span>
                             <div className="GetNowBtnContainer">
-                                <NavLink className="btn btn-danger GoldBtn" to="/Login">
+                                <NavLink className="btn btn-danger GoldBtn" to={`/reserve/${Id}`}>
                                     {t('book_now')}
                                 </NavLink>
                             </div>

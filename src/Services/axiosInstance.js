@@ -60,9 +60,7 @@ axiosInstance.interceptors.response.use(
                 setToken(response.data.token);
                 // console.log(setToken(response.data.token));
                 
-    
                 originalRequest.headers.Authorization = `Bearer ${response.data.access_token}`;
-
                 // Update the authorization header and retry the original request
                 return axiosInstance(originalRequest);
 

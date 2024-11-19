@@ -15,7 +15,7 @@ const ServiceHomeCard = ({Image , Ttile , Description})=>{
                                 {Description}
                             </span>
                             <div className="GetNowBtnContainer">
-                                <NavLink className="btn btn-danger GoldBtn" to="/Login">
+                                <NavLink className="btn btn-danger GoldBtn" to="/services">
                                     {t('LearnMore')}
                                 </NavLink>
                             </div>

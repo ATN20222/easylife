@@ -1,0 +1,8 @@
+.ReserveHeader{
+    margin-top: 50px;
+}
+.ReservationForm{
+    border: 2px solid var(--accent-color-2);
+    padding: 30px !important;
+    border-radius: 15px;
+}

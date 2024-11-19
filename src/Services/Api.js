@@ -1,7 +1,8 @@
 import axios from 'axios';
 import axiosInstance, { deleteToken, setToken } from './axiosInstance';
+import i18n from '../i18n';
 
-const baseURL = 'https://localhost:7201/api';
+const baseURL = 'https://localhost:7201s/api';
 const axiosApi = axios.create({
     baseURL: baseURL,
     Accept:'application/json',
@@ -19,6 +20,7 @@ const AuthService = {
             }
             const response = await axiosApi.post(`/auth/login`, data);
             setToken(response.data.token);
+            localStorage.setItem('Name' , response.data.userName);
             return response.data; 
         } catch (error) {
             throw new Error(error.response.data); 
@@ -52,6 +54,103 @@ const AuthService = {
 
 
 }
+
+var langObj = {
+    headers: {
+        'Accept-Language': i18n.language
+    }
+}
+const ServicesService = {
+    List: async () => {
+        try {
+            const response = await axiosInstance.get(`/services/`,langObj);
+            return response.data;
+        } catch (error) {
+            throw new Error(error.response.data.message);
+        }
+    },  
+    GetById: async (id) => {
+        try {
+            const response = await axiosInstance.get(`/services/${id}`,langObj);
+            return response.data;
+        } catch (error) {
+            console.log(error)
+            throw new Error(error.response.data.message);
+        }
+    },
+}
+const NewsService = {
+    List: async () => {
+        try {
+            const response = await axiosInstance.get(`/news`,langObj);
+            return response.data;
+        } catch (error) {
+            throw new Error(error.response.data.message);
+        }
+    },
+    GetById: async (id) => {
+        try {
+            const response = await axiosInstance.get(`/news/${id}`,langObj);
+            return response.data;
+        } catch (error) {
+            console.log(error)
+            throw new Error(error.response.data.message);
+        }
+    },
+}
+const NotificationService = {
+    List: async () => {
+        try {
+            const response = await axiosInstance.get(`/notifications`,langObj);
+            return response.data;
+        } catch (error) {
+            throw new Error(error.response.data.message);
+        }
+    },
+    GetById: async (id) => {
+        try {
+            const response = await axiosInstance.get(`/notifications/${id}`,langObj);
+            return response.data;
+        } catch (error) {
+            console.log(error)
+            throw new Error(error.response.data.message);
+        }
+    },
+}
+const ReservationsService = {
+    List: async () => {
+        try {
+            const response = await axiosInstance.get(`/reservations/MyReservations`,langObj);
+            return response.data;
+        } catch (error) {
+            throw new Error(error.response.data.message);
+        }
+    },
+    Add:async (userName,location , details , phoneNumber , reservationTime , reservationStatusId , ServiceId) => {
+        try {
+            const formData = new FormData();
+            formData.append('userName', userName);
+            formData.append('location', location);
+            formData.append('details', details);
+            formData.append('phoneNumber', phoneNumber);
+            formData.append('reservationTime', reservationTime);
+            formData.append('reservationStatusId', reservationStatusId);
+            formData.append('ServiceId', ServiceId);
+            const response = await axiosInstance.post(`/reservations`,formData);
+            return response.data;
+        } catch (error) {
+            throw new Error(error.response.data.message);
+        }
+    },
+    
+    
+}
+
+
 export {
-    AuthService
+    AuthService,
+    ServicesService,
+    NewsService,
+    NotificationService,
+    ReservationsService
 }

@@ -17,7 +17,7 @@ const Footer = ()=>{
                                     {/* <img src={Logo} width="130px" alt="" /> */}
                                     <div className="LogoContainer">
                                         <div className="LogoNavContainer">
-                                            <FontAwesomeIcon icon={faHandshake} /> {t('logo')}
+                                            <FontAwesomeIcon icon={faHandshake} />Easy Life         
                                         </div>
                                     </div>
                                 </div>
