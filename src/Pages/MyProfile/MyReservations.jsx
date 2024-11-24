@@ -4,6 +4,7 @@ import { ReservationsService } from "../../Services/Api"; // Assuming Reservatio
 import toast, { Toaster } from "react-hot-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronCircleDown, faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const MyReservations = () => {
     const [reservations, setReservations] = useState([]);
@@ -159,6 +160,10 @@ const MyReservations = () => {
                     </div>
                 ))}
             </div>
+            {reservations.length===0&&
+                <Link to="/reserve/1" className="Nav-Link">{t('no_reservations_yet')}</Link>
+            
+            }
         </div>
     );
 };

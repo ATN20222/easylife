@@ -1,7 +1,7 @@
 import { t } from "i18next";
 import React from "react";
 import { NavLink } from "react-router-dom";
-const ServiceHomeCard = ({Image , Ttile , Description})=>{
+const ServiceHomeCard = ({Image , Title , Description})=>{
     return(
         <div className="col-lg-6 col-md-6 col-sm-6 col-10 ServiceHomeCardContainer">
             <div className="ServiceHomeCard">
@@ -10,7 +10,7 @@ const ServiceHomeCard = ({Image , Ttile , Description})=>{
                     <div className="row">
 
                         <div className="col-lg-6 ServiceHomeCardTextCol">
-                            <h3>{Ttile}</h3>
+                            <h3>{Title}</h3>
                             <span>
                                 {Description}
                             </span>

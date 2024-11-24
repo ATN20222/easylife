@@ -37,6 +37,7 @@ const ServicesCardsSection = () => {
     const getServicesData = async () => {
         try {
             const response = await ServicesService.List(); 
+            console.log(response);
             setServices(response.data); 
             setLoading(false);
         } catch (error) {
@@ -61,7 +62,7 @@ const ServicesCardsSection = () => {
                             key={service.id} 
                             Id={service.id}
                             Image={service.imageUrl || (service.id === 1 ? CleaningServiceImage : service.id === 2 ? ElderlyCareImage : ChildCareImage)} // Default image handling
-                            Ttile={service.title}
+                            Title={service.name}
                             Description={service.description}
                         />
                     ))}

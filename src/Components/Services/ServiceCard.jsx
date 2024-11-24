@@ -2,7 +2,7 @@ import { t } from "i18next";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const ServiceCard = ({ Id, Image, Ttile, Description }) => {
+const ServiceCard = ({ Id, Image, Title, Description }) => {
     // State to manage whether the full description is shown
     const [isReadMore, setIsReadMore] = useState(false);
     
@@ -21,7 +21,7 @@ const ServiceCard = ({ Id, Image, Ttile, Description }) => {
                         </div>
                         
                         <div className="col-lg-12 ServiceHomeCardTextCol">
-                            <h3>{Ttile}</h3>
+                            <h3>{Title}</h3>
                             <span>
                                 {/* Show the full description if read more is clicked, otherwise show truncated text */}
                                 {isReadMore ? Description : `${Description.substring(0, 100)}...`}

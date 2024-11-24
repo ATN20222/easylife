@@ -102,7 +102,7 @@ const Register = () => {
 
     return (
         <div className="Login">
-             <div className="Toaster">
+            <div className="Toaster">
                 <Toaster
                     position="top-right"
                     reverseOrder={false}
@@ -180,6 +180,9 @@ const Register = () => {
                                 <button type="submit" className="btn-primary-temp" disabled={loading}>
                                     {loading ? "Registering..." : "Register"}
                                 </button>
+                                <span>
+                                    <Link to="/login" className="RegisterNow">Back to login</Link>
+                                </span>
                             </div>
                         </form>
                     </div>

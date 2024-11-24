@@ -142,13 +142,14 @@ const Nav = () => {
             <div className={`MainNav ${isSticky ? 'sticky' : ''}`}>
                 <div className="container">
                     <div className="row NavRow">
-                        <div className="col-lg-3 col-md-4 col-6">
+                        <div className="col-lg-3 col-md-2 col-6">
                             <div className="LogoContainer">
                                 <div className="LogoNavContainer">
                                     <FontAwesomeIcon icon={faHandshake} /> Easy Life
                                 </div>
                             </div>
                         </div>
+                            
                         <div className="col-lg-9 col-md-12 LinksNav">
                             <ul className="list-list-unstyled">
                                 <li className="list-inline-item">
@@ -286,9 +287,105 @@ const Nav = () => {
                                 }
                             </ul>
                         </div>
+
+
+                        <div className="col-lg-3 col-md-3 col-4 LinksNavDisplay">
+                            <ul className="list-list-unstyled">
+                                
+                                {isLoggedIn&&
+
+                                    <li className="list-inline-item">
+                                        <NavLink
+                                            onClick={()=>{setShowDropdown2(!showDropdown2)}}
+                                            className={({ isActive }) => isActive ? "Nav-Link ActiveLink userName" : "Nav-Link userName"}
+                                            // to="/myprofile"
+                                            // onClick={scrollToTop}
+                                        >
+                                            {/* {t('')} */}
+                                            
+                                            {showDropdown2 && (
+                                                <ul style={dropdownStyle2}>
+                                                    <li style={dropdownItemStyle}>
+                                                        <Link className="Nav-Link" to='/'>{Name}</Link>
+                                                    </li>
+
+                                                    <li style={dropdownItemStyle}>
+                                                        <Link className="Nav-Link" to='/MyReservations'>{t('MyReservations')}</Link>
+                                                    </li>
+                                                    
+                                                    <li style={dropdownItemStyle} onClick={()=>{
+                                                        deleteToken();
+                                                        localStorage.clear();
+                                                        window.location.reload();
+                                                    }}>
+                                                        {t('Logout')}
+                                                    </li>
+                                                    
+                                                </ul>
+                                            )}
+                                            <FontAwesomeIcon icon={faUser}/> 
+                                        </NavLink>
+                                    </li>
+                                    
+                                }
+                                
+                                <li className="list-inline-item">
+                                    <div className="Nav-Link LanguageBtn" onClick={toggleDropdown}>
+                                        <FontAwesomeIcon icon={faGlobe} />
+                                        {showDropdown && (
+                                        <ul style={dropdownStyle}>
+                                            <li style={dropdownItemStyle} onClick={() => changeLanguage('en')}>
+                                                {t('english')}
+                                            </li>
+                                            <li style={dropdownItemStyle} onClick={() => changeLanguage('ar')}>
+                                                {t('arabic')}
+                                            </li>
+                                        </ul>
+                                        )}
+                                    </div>
+                                </li>
+                                {isLoggedIn&&
+                                
+                                <li className="list-inline-item Notify">
+                                    <div className="Nav-Link LanguageBtn" onClick={toggleNotifications}>
+                                        <FontAwesomeIcon icon={faBell} />
+                                    </div>
+                                    {showNotifications && (
+                                        <div className={`${i18n.language==='ar'?'notification-dropdown':'notification-dropdownEn'}`}>
+                                            
+                                            <div className="notification-list">
+                                                {notifications.length > 0 ? notifications.map((notification, index) => (
+                                                    <div key={index} className="notification-item text-start">
+                                                        <div className="TitleNotify d-flex justify-content-between flex-row">
+                                                            <h6>{notification.title}</h6>
+                                                            <small>{formatDateToTimeAgo(notification.date)}</small>
+                                                        </div>
+                                                        <p>{notification.description}</p>
+                                                        
+                                                    </div>
+                                                )) : (
+                                                    <div className="notification-item">
+                                                        <p>{t('no_notifications')}</p>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    )}
+                                </li>
+                                }
+                            </ul>
+                        </div>
+
+
+                    <div className="MenuButtonCol col-md-1 col-1 d-md-none Center">
+                        <button className="MenuButton" onClick={toggleMenu}>
+                            <FontAwesomeIcon icon={faBars} />
+                        </button>
+                    </div>
                     </div>
                 </div>
             </div>
+
 
             <div className={`OverlayMenu ${isMenuOpen ? 'open' : ''}`}>
                 <button className="CloseButton" onClick={toggleMenu}>
@@ -305,20 +402,23 @@ const Nav = () => {
                         <NavLink to="/services" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('services')}</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/solutions" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('solutions')}</NavLink>
-                    </li>
-                    <li>
                         <NavLink to="/news" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('news')}</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/clients" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('clients')}</NavLink>
+                        <NavLink to="/contact" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('contact_us')}</NavLink>
                     </li>
+
+                    {isLoggedIn&&
+                    <>
                     <li>
-                        <NavLink to="/careers" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('careers')}</NavLink>
+                        <NavLink to="/login" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('login')}</NavLink>
                     </li>
+                    
                     <li>
-                        <NavLink to="/contactus" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('contact_us')}</NavLink>
+                        <NavLink to="/register" onClick={() => { scrollToTop(); toggleMenu(); }}>{t('register')}</NavLink>
                     </li>
+                    </>
+                    }
                 </ul>
             </div>
         </section>

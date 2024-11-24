@@ -2,7 +2,7 @@ import axios from 'axios';
 import axiosInstance, { deleteToken, setToken } from './axiosInstance';
 import i18n from '../i18n';
 
-const baseURL = 'https://localhost:7201s/api';
+const baseURL = 'http://easylife.runasp.net/api';
 const axiosApi = axios.create({
     baseURL: baseURL,
     Accept:'application/json',
@@ -33,11 +33,11 @@ const AuthService = {
                 email:email,
                 password:password
             }
-            const response = await axiosApi.post(`/auth/register`, data);
+            const response = await axiosApi.post(`/auth/registerWithConfirm`, data);
             return response.data; 
         } catch (error) {
             // console.log('f',error.response.data[0].description)
-            throw new Error(error.response.data[0].description); 
+            throw new Error(error.response.data.description); 
 
         }
     },

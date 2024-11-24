@@ -41,7 +41,7 @@ const HomeServicesSection = () => {
                             <ServiceHomeCard 
                                 key={index} // Ensure each card has a unique key
                                 Image={service.imageUrl || (index === 0 ? CleaningServiceImage : index === 1 ? ElderlyCareImage : ChildCareImage)} // Fallback images
-                                Title={service.title} // Assuming service data contains title
+                                Title={service.name} // Assuming service data contains title
                                 Description={service.description} // Assuming service data contains description
                             />
                         ))

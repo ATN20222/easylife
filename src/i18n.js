@@ -69,7 +69,7 @@ i18n
                 message_sent: "Your message has been sent",
                 message_failed: "Failed to send your message",
                 send_a_message: 'Send a message',
-                account_created: 'Account created!',
+                account_created: 'Account created ,Check your email for activation!',
                 reserve: "Reserve your service now!",
                 please_fill_reservation_form: "Please fill the next form",
                 reservation_date: "Reservation Date",
@@ -91,6 +91,8 @@ i18n
                 reservationFailed:'Failed to make reservation',
                 MyReservations:'Reservations',
                 reservation:'Reservation',
+                no_reservations_yet:'No reservations yet, reserve now',
+
             }
         },
 
@@ -158,7 +160,7 @@ i18n
                 message_sent: "تم ارسال رسالتك بنجاح",
                 message_failed: "فشل ارسال رسالتك",
                 send_a_message: 'ارسل رسالة',
-                account_created: 'تم انشاء الحساب',
+                account_created: 'تم انشاء الحساب , برجاء تفعيل الحساب عن طريق الايميل.',
                 reserve: 'احجز الان',
                 please_fill_reservation_form: 'قم بملئ البيانات التالية من فضلك',
                 reservation_date: "تاريخ الحجز",
@@ -179,7 +181,8 @@ i18n
                 reservationSuccess:"تم ارسال طلبك بنجاح",
                 reservationFailed:'فشل ارسال الطلب',
                 MyReservations:'حجوزاتي',
-                reservation:'حجز'
+                reservation:'حجز',
+                no_reservations_yet:'لا يوجد حجوزات بعد احجز الان',
             }
         },
     },
