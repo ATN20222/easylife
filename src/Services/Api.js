@@ -2,7 +2,7 @@ import axios from 'axios';
 import axiosInstance, { deleteToken, setToken } from './axiosInstance';
 import i18n from '../i18n';
 
-const baseURL = 'http://easylife.runasp.net/api';
+const baseURL = 'https://easylife.runasp.net/api';
 const axiosApi = axios.create({
     baseURL: baseURL,
     Accept:'application/json',

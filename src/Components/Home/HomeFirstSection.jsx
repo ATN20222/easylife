@@ -7,7 +7,7 @@ const HomeFirstSection = ()=>{
         <section className="HomeFirstSection">
             <div className="HomeFirstSectionContainer container">
                 <div className="row">
-                    <div className="col-lg-5 HomeFirstSectionTextCol">
+                    <div className="col-lg-5 mt-2 HomeFirstSectionTextCol">
                         <h1>
                             {t('we_help_you')}
                             <br />
@@ -20,7 +20,7 @@ const HomeFirstSection = ()=>{
                             </NavLink>
                         </div>
                     </div>
-                    <div className="col-lg-7">
+                    <div className="col-lg-7 mt-2">
                         <img src={HomeImage} width="100%" alt="" />
                     </div>
                 </div>
